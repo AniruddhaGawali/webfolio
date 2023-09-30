@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Chomsky';
+  src: url('/public/font/Chomsky-8MOa2.ttf');
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background: #ffffff;
+}
