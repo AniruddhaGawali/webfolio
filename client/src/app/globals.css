@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Chomsky';
-  src: url('/public/font/Chomsky-8MOa2.ttf');
+  src: url('/public/font/Chomsky-8MOa2.ttf'), format('truetype');
 }
 
 body {
