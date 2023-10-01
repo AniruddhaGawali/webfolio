@@ -50,6 +50,11 @@ const HeroSection = (props: Props) => {
             <Button
               variant="default"
               className="mt-5 w-full max-w-[400px] font-bold uppercase"
+              onClick={() => {
+                window.open(
+                  "https://drive.google.com/file/d/1wLFBfaqg_vddbj0iVN9IYU5-JwncpIH8/view?usp=drive_link",
+                );
+              }}
             >
               <span className="mr-2 text-2xl">
                 <HiDocumentText />{" "}
@@ -98,6 +103,11 @@ const HeroSection = (props: Props) => {
             <Button
               variant="default"
               className="mt-5 w-full font-bold uppercase"
+              onClick={() => {
+                window.open(
+                  "https://drive.google.com/file/d/1wLFBfaqg_vddbj0iVN9IYU5-JwncpIH8/view?usp=drive_link",
+                );
+              }}
             >
               <span className="mr-2 text-2xl">
                 <HiDocumentText />{" "}
