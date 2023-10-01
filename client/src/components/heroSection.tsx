@@ -13,7 +13,7 @@ const HeroSection = (props: Props) => {
 
   return (
     <>
-      <div className="mt-10 items-center justify-stretch gap-5 sm:flex sm:flex-row lg:items-center">
+      <div className="mt-10 items-start justify-center gap-5 sm:flex sm:flex-row lg:items-center">
         <h2 className="mb-2 block text-3xl font-bold uppercase sm:hidden">
           Aniruddha Gawali Takes the Tech World by Storm: A Rising Star in
           Computer World
