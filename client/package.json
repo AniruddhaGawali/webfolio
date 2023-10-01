@@ -35,6 +35,6 @@
     "typescript": "latest"
   },
   "engines": {
-    "node": ">=16.14.0"
+    "node": "20.6.1"
   }
 }
