@@ -26,7 +26,6 @@ const ProjectSection = (props: Props) => {
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
-        console.log(data);
       });
   }, []);
 
