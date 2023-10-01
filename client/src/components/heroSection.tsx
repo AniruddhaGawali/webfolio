@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { HeroSectionData } from "@/config/heroSection";
 
 import { HiDocumentText } from "react-icons/hi";
+import Social from "./social";
 
 type Props = {};
 
@@ -55,9 +56,7 @@ const HeroSection = (props: Props) => {
               </span>
               <span> Download Resume</span>
             </Button>
-            <p className="mt-5 text-center text-sm capitalize italic">
-              LinkedIn | Twitter | Instagram | Mail{" "}
-            </p>
+            <Social />
           </div>
         </section>
 
@@ -105,9 +104,7 @@ const HeroSection = (props: Props) => {
               </span>
               <span> Download Resume</span>
             </Button>
-            <p className="mt-5 text-center text-sm capitalize italic">
-              LinkedIn | Twitter | Instagram | Mail{" "}
-            </p>
+            <Social />
           </div>
         </section>
       </div>

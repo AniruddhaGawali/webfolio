@@ -2,6 +2,7 @@ import React from "react";
 
 // 👇 import local font
 import localFont from "next/font/local";
+import Social from "./social";
 
 //👇 Configure our local font object
 const Chomsky = localFont({ src: "../../public/font/Chomsky.ttf" });
@@ -16,9 +17,7 @@ const Footer = () => {
         Page 1
       </div>
       <div>
-        <p className=" text-center text-sm capitalize italic">
-          LinkedIn | Twitter | Instagram | Mail{" "}
-        </p>
+        <Social />
       </div>
       <div className={`${Chomsky.className} flex text-xl font-bold sm:hidden`}>
         Page 1
