@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 // 👇 import local font
-import localFont from 'next/font/local';
+import localFont from "next/font/local";
 
 //👇 Configure our local font object
-const Chomsky = localFont({ src: '../../public/font/Chomsky.ttf' });
+const Chomsky = localFont({ src: "../../public/font/Chomsky.ttf" });
 
 type Props = {};
 
@@ -19,27 +19,27 @@ type Weather = {
 
 function getDate() {
   const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
   const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
 
   const date = new Date();
@@ -54,10 +54,10 @@ function getDate() {
 
 const Navbar = (props: Props) => {
   const [weather, setWeather] = useState({
-    name: 'Localhost City',
+    name: "Localhost City",
     temp: 293.15,
     wind: 2,
-    desc: 'Sunny Day',
+    desc: "Sunny Day",
   } as Weather);
   const key = process.env.NEXT_PUBLIC_OPEN_WEATHER_KEY;
 
@@ -83,61 +83,63 @@ const Navbar = (props: Props) => {
         //   });
       });
     } else {
-      console.log('Geolocation is not supported by this browser.');
+      console.log("Geolocation is not supported by this browser.");
     }
   }, []);
 
   return (
     <header>
-      <section className="flex sm:flex-row flex-col gap-3 justify-between items-center">
+      <section className="flex flex-col items-center justify-between gap-3 sm:flex-row">
         <h1
-          className={`text-4xl sm:hidden flex font-bold cursor-pointer ${Chomsky.className}`}>
+          className={`flex cursor-pointer text-4xl font-bold sm:hidden ${Chomsky.className}`}
+        >
           The Dev Daily Bugle
         </h1>
 
-        <p className="xl:w-[200px] sm:w-[180px] w-fit px-5 py-2 xl:text-xl lg:text-lg text-sm border-primary font-medium text-center border">
+        <p className="w-fit border border-primary px-5 py-2 text-center text-sm font-medium sm:w-[180px] lg:text-lg xl:w-[200px] xl:text-xl">
           All the news that fit to print
         </p>
 
         <h1
-          className={`xl:text-7xl lg:text-6xl md:text-[2.5rem] sm:text-2xl sm:flex hidden font-bold cursor-pointer ${Chomsky.className}`}>
+          className={`hidden cursor-pointer font-bold sm:flex sm:text-2xl md:text-[2.5rem] lg:text-6xl xl:text-7xl ${Chomsky.className}`}
+        >
           The Dev Daily Bugle
         </h1>
 
-        <p className="xl:w-[220px] sm:w-[180px] w-fit xl:text-xl lg:text-lg text-sm text-center border-primary px-5 sm:py-2 py-0 sm:border">
+        <p className="w-fit border-primary px-5 py-0 text-center text-sm sm:w-[180px] sm:border sm:py-2 lg:text-lg xl:w-[220px] xl:text-xl">
           {weather.name ? (
             <>
               <span className="font-medium capitalize">{weather.desc},</span>
-              <br className="hidden sm:flex" />{' '}
-              <span className="font-light whitespace-nowrap">
+              <br className="hidden sm:flex" />{" "}
+              <span className="whitespace-nowrap font-light">
                 Temperature: {Math.round(weather.temp - 273.15)}°C
               </span>
-              <br className="hidden sm:flex" />{' '}
+              <br className="hidden sm:flex" />{" "}
               <span className="font-light">
                 Wind: {Math.round(weather.wind)} m/s
               </span>
             </>
           ) : (
-            'Loading...'
+            "Loading..."
           )}
         </p>
       </section>
       <section className="mt-5 ">
-        <div className="w-full h-[2px] bg-primary" />
-        <div className="w-full h-[2px] bg-primary mt-[2px]" />
+        <div className="h-[2px] w-full bg-primary" />
+        <div className="mt-[2px] h-[2px] w-full bg-primary" />
 
-        <section className="flex justify-between items-center md:px-24 mt-2 md:text-lg text-sm">
-          <a className="font-bold text-center  underline cursor-pointer">
+        <section className="mt-2 flex items-center justify-between text-sm md:px-24 md:text-lg">
+          <a className="cursor-pointer text-center  font-bold underline">
             Menu
           </a>
-          <h4 className="font-bold text-center ">
+          <h4 className="text-center font-bold ">
             {weather.name}, {getDate()}
           </h4>
-          <span className="ext-center sm:flex hidden">One Cent</span>
+          <span className="ext-center hidden sm:flex">One Cent</span>
         </section>
 
-        <div className="w-full h-[2px] bg-primary mt-2" />
-        <div className="w-full h-[2px] bg-primary mt-[2px]" />
+        <div className="mt-2 h-[2px] w-full bg-primary" />
+        <div className="mt-[2px] h-[2px] w-full bg-primary" />
       </section>
     </header>
   );

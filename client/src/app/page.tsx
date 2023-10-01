@@ -1,9 +1,11 @@
-import Navbar from '@/components/navbar';
+import HeroSection from "@/components/heroSection";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
-    <main className="pt-[10px] sm:p-[30px] p-[20px]">
+    <main className="p-[20px] pt-[10px] sm:p-[30px]">
       <Navbar />
+      <HeroSection />
     </main>
   );
 }
