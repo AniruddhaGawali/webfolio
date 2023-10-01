@@ -68,7 +68,6 @@ const Navbar = (props: Props) => {
         const longitude = position.coords.longitude;
         const api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
-        console.log(api);
         // fetch(api)
         //   .then((response) => response.json())
         //   .then((data) => {

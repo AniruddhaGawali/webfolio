@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import HeroSection from "@/components/heroSection";
 import Navbar from "@/components/navbar";
 import ProjectSection from "@/components/projectSection";
@@ -12,6 +13,9 @@ export default function Home() {
       <SkillsSection />
       <div className=" h-[2px] w-full bg-primary" />
       <ProjectSection />
+      <div className="mt-10 h-[2px] w-full bg-primary" />
+      <div className="mt-[2px] h-[2px] w-full bg-primary" />
+      <Footer />
     </main>
   );
 }
