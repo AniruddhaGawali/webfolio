@@ -37,18 +37,18 @@ const Navbar = (props: Props) => {
         const longitude = position.coords.longitude;
         const api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
-        // fetch(api)
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     console.log(data);
-        //     const weather = {
-        //       name: data.name,
-        //       temp: data.main.temp,
-        //       wind: data.wind.speed,
-        //       desc: data.weather[0].description,
-        //     };
-        //     setWeather(weather);
-        //   });
+        fetch(api)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            const weather = {
+              name: data.name,
+              temp: data.main.temp,
+              wind: data.wind.speed,
+              desc: data.weather[0].description,
+            };
+            setWeather(weather);
+          });
       });
     } else {
       console.log("Geolocation is not supported by this browser.");

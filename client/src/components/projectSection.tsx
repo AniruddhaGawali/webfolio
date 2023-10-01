@@ -21,13 +21,13 @@ const ProjectSection = (props: Props) => {
 
   const apiLink = process.env.NEXT_PUBLIC_API_LINK;
 
-  // useEffect(() => {
-  //   fetch(apiLink + "/api/project")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setProjects(data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(apiLink + "/api/project")
+      .then((res) => res.json())
+      .then((data) => {
+        setProjects(data);
+      });
+  }, []);
 
   return (
     <div className="mt-10 block items-start justify-start gap-5 sm:flex">
