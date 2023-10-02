@@ -14,7 +14,7 @@ type Skill = {
 };
 
 const SkillsSection = (props: Props) => {
-  const [skills, setSkills] = useState<Skill[]>([]);
+  const [skills, setSkills] = useState<Skill[] | null>(null);
   const apiLink = process.env.NEXT_PUBLIC_API_LINK;
 
   useEffect(() => {
@@ -32,17 +32,22 @@ const SkillsSection = (props: Props) => {
           <div className="m-5">
             <p className="text-3xl font-bold text-primary">Skills</p>
           </div>
-          {skills.map((item, index) => (
-            <div key={index} className="m-5 flex  items-center gap-2 grayscale">
-              <Image
-                src={item.image_url}
-                alt={item.skill}
-                width={40}
-                height={40}
-              />
-              <p className="text-xl font-bold text-primary">{item.skill}</p>
-            </div>
-          ))}
+
+          {skills !== null &&
+            skills.map((item, index) => (
+              <div
+                key={index}
+                className="m-5 flex  items-center gap-2 grayscale"
+              >
+                <Image
+                  src={item.image_url}
+                  alt={item.skill}
+                  width={40}
+                  height={40}
+                />
+                <p className="text-xl font-bold text-primary">{item.skill}</p>
+              </div>
+            ))}
         </Marquee>
       </section>
     </>
