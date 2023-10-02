@@ -5,8 +5,13 @@ const SkillModel = require('../model/skills.model');
 const { ObjectId } = require('bson');
 
 router.get('/', async (req, res) => {
-  let skills = await SkillModel.find({});
-  res.status(200).json(skills);
+  try {
+    let skills = await SkillModel.find({});
+    return res.status(200).json({ skills });
+  } catch (error) {
+    console.error('Error fetching skills:', error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 router.post('/new', async (req, res) => {
