@@ -1,4 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const client = mongoose.createConnection(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const skillsSchema = new mongoose.Schema({
   skill: {
@@ -15,5 +22,5 @@ const skillsSchema = new mongoose.Schema({
   },
 });
 
-const SkillsModel = mongoose.model("skill", skillsSchema);
+const SkillsModel = client.model('skill', skillsSchema);
 module.exports = SkillsModel;

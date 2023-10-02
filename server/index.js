@@ -1,6 +1,6 @@
 const express = require('express');
 var cors = require('cors');
-const connect = require('./config/db');
+// const connect = require('./config/db');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -20,7 +20,7 @@ app.use('/api/contactme', require('./controller/contactme.controller'));
 app.use('/api/blog', require('./controller/blog.controller'));
 
 app.listen(PORT, async () => {
-  await connect();
+  // await connect();
   console.log(`Listening on the port ${PORT}`);
 });
 
