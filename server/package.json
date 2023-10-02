@@ -90,7 +90,7 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": "20.6.1"
+    "node": "18.12.1"
   },
   "author": "",
   "license": "ISC"
