@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const client = require('../config/createConnection');
 
 const BlogSchema = new mongoose.Schema(
   {
@@ -9,5 +10,5 @@ const BlogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const BlogModel = mongoose.model("blog", BlogSchema);
+const BlogModel = client.model('blog', BlogSchema);
 module.exports = BlogModel;

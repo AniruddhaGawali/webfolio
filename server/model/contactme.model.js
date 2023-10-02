@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const client = require('../config/createConnection');
 
 const ContactMeSchema = new mongoose.Schema(
   {
@@ -12,4 +13,4 @@ const ContactMeSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("contactme", ContactMeSchema);
+module.exports = client.model('contactme', ContactMeSchema);

@@ -1,11 +1,5 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config();
-
-const client = mongoose.createConnection(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const client = require('../config/createConnection');
 
 const skillsSchema = new mongoose.Schema({
   skill: {

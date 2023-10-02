@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const client = require('../config/createConnection');
 
 const introSchema = new mongoose.Schema({
   intro: {
@@ -11,6 +12,6 @@ const introSchema = new mongoose.Schema({
   },
 });
 
-const introModel = mongoose.model("intro", introSchema);
+const introModel = client.model('intro', introSchema);
 
 module.exports = introModel;

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const client = require('../config/createConnection');
 
 const TimeLIneSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -8,4 +9,4 @@ const TimeLIneSchema = new mongoose.Schema({
   rank: { type: Number, default: 0, required: true },
 });
 
-module.exports = mongoose.model('timeline', TimeLIneSchema);
+module.exports = client.model('timeline', TimeLIneSchema);
