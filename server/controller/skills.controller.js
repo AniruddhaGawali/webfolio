@@ -6,7 +6,7 @@ const { ObjectId } = require('bson');
 
 router.get('/', async (req, res) => {
   let skills = await SkillModel.find({});
-  return res.status(200).json({ skills });
+  res.status(200).json(skills);
 });
 
 router.post('/new', async (req, res) => {
