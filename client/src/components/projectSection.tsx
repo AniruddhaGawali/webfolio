@@ -56,7 +56,7 @@ const ProjectSection = (props: Props) => {
 
   return (
     <div className="mt-10 block items-start justify-start gap-5 sm:flex">
-      <section className="w-full border-primary pr-5 sm:w-2/3 sm:border-r-2">
+      <section className="w-full border-primary pr-0 sm:w-2/3 ">
         <h2 className="mb-10 block text-3xl font-bold uppercase sm:block sm:text-3xl md:text-4xl lg:text-5xl ">
           New Showcase Projects Gallery Unveiled on{" "}
           <a
@@ -92,7 +92,7 @@ const ProjectSection = (props: Props) => {
         </div>
       </section>
 
-      <section className="w-full border-t-2 border-primary pt-10 sm:mt-0 sm:w-1/3  sm:border-0 sm:pt-0 ">
+      <section className="w-full border-primary pl-5 pt-10 sm:mt-0 sm:w-1/3  sm:border-l-2 sm:pt-0 ">
         <h2 className="mb-5 block text-3xl font-bold uppercase sm:block sm:text-3xl md:text-4xl lg:text-5xl ">
           Top HeadLines
         </h2>
