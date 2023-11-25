@@ -30,10 +30,13 @@ type News = {
 const ProjectSection = (props: Props) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [news, setNews] = useState<News[]>([]);
-  const randomNews = [
-    news[Math.floor(Math.random() * news.length)],
-    news[Math.floor(Math.random() * news.length)],
-  ];
+  const randomNews =
+    news.length > 0
+      ? [
+          news[Math.floor(Math.random() * news.length)],
+          news[Math.floor(Math.random() * news.length)],
+        ]
+      : null;
 
   const apiLink = process.env.NEXT_PUBLIC_API_LINK;
 
@@ -95,7 +98,7 @@ const ProjectSection = (props: Props) => {
         </h2>
 
         <section className=" flex  flex-wrap gap-8">
-          {randomNews.length > 0 &&
+          {randomNews &&
             randomNews.map((news) => (
               <a href={news.url} className="group">
                 <div className="w-full">
