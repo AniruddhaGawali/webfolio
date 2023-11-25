@@ -18,6 +18,7 @@ app.use('/api/skills', require('./controller/skills.controller'));
 app.use('/api/timeline', require('./controller/timeline.controller'));
 app.use('/api/contactme', require('./controller/contactme.controller'));
 app.use('/api/blog', require('./controller/blog.controller'));
+app.use('/api/news', require('./controller/news.controller'));
 
 app.listen(PORT, async () => {
   // await connect();
