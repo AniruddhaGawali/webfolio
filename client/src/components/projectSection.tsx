@@ -56,7 +56,7 @@ const ProjectSection = (props: Props) => {
 
   return (
     <div className="mt-10 block items-start justify-start gap-5 sm:flex">
-      <section className="w-full border-primary pr-5 sm:w-2/3 sm:border-r-2">
+      <section className="w-full border-primary pr-0 sm:w-2/3 ">
         <h2 className="mb-10 block text-3xl font-bold uppercase sm:block sm:text-3xl md:text-4xl lg:text-5xl ">
           New Showcase Projects Gallery Unveiled on{" "}
           <a
@@ -68,7 +68,7 @@ const ProjectSection = (props: Props) => {
           </a>
         </h2>
 
-        <div className="mt-4 columns-1 sm:columns-2 lg:columns-3 xl:columns-4 ">
+        <div className="mt-4 columns-1  border-primary pr-5  sm:border-r-2 md:columns-2 xl:columns-4 ">
           {projects.map((project) => (
             <div className="group flex flex-col" key={project.id}>
               <a href={project.url} target="_blank" className="cursor-pointer">
@@ -92,7 +92,7 @@ const ProjectSection = (props: Props) => {
         </div>
       </section>
 
-      <section className="w-full border-t-2 border-primary pt-10 sm:mt-0 sm:w-1/3  sm:border-0 sm:pt-0 ">
+      <section className="w-full pl-5 pt-10 sm:mt-0 sm:w-1/3   sm:pt-0 ">
         <h2 className="mb-5 block text-3xl font-bold uppercase sm:block sm:text-3xl md:text-4xl lg:text-5xl ">
           Top HeadLines
         </h2>
@@ -105,13 +105,18 @@ const ProjectSection = (props: Props) => {
                   <h3 className="text-lg font-bold leading-6 text-gray-900 group-hover:underline">
                     {news.title}
                   </h3>
-                  <div className="mt-3 flex gap-3">
-                    <img src={news.image} className="h-1/3 w-1/3 grayscale" />
+                  <div className="mt-3 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                    <img
+                      src={news.image}
+                      className="h-1/3 w-2/3 grayscale sm:w-1/3"
+                    />
                     <p className="mt-1 max-w-2xl text-sm text-gray-500">
                       {news.description}
                     </p>
                   </div>
                 </div>
+                <br />
+                <hr />
               </a>
             ))}
 
@@ -119,10 +124,10 @@ const ProjectSection = (props: Props) => {
             <h3 className="text-lg font-bold leading-6 text-gray-900 group-hover:underline">
               Police seek Spiderman: citywide search for a bug
             </h3>
-            <div className="mt-3 flex gap-3">
+            <div className="mt-3 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <img
                 src="/images/spiderman.jpeg"
-                className="h-1/3 w-1/3 grayscale"
+                className="h-1/3 w-2/3 grayscale sm:w-1/3"
               />
               <p className="mt-1 max-w-2xl text-sm text-gray-500">
                 In a citywide hunt reminiscent, police are on the lookout for
