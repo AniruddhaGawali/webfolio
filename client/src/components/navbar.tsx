@@ -40,7 +40,6 @@ const Navbar = (props: Props) => {
         fetch(api)
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
             const weather = {
               name: data.name,
               temp: data.main.temp,
