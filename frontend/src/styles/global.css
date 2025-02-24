@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&family=Yarndings+20&display=swap");
+
+:root {
+  --background: 0, 0%, 100%;
+  --foreground: 0, 0%, 0%;
+  --p1: 357, 86%, 50%;
+  --p2: 14, 92%, 54%;
+  --p3: 14, 92%, 54%;
+  --p4: 14, 92%, 54%;
+
+  --p1-foreground: 14, 92%, 85%;
+  --p2-foreground: 14, 92%, 54%;
+
+  --background: 21 100% 95%;
+  --foreground: 21 5% 0%;
+
+  --card: 21 50% 90%;
+  --card-foreground: 21 5% 10%;
+  --popover: 21 100% 95%;
+  --popover-foreground: 21 100% 0%;
+  --primary: 21 92.3% 53.9%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 21 30% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: -17 30% 85%;
+  --muted-foreground: 21 5% 35%;
+  --accent: -17 30% 80%;
+  --accent-foreground: 21 5% 10%;
+  --destructive: 0 100% 30%;
+  --destructive-foreground: 21 5% 90%;
+  --border: 21 30% 50%;
+  --input: 21 30% 18%;
+  --ring: 21 92.3% 53.9%;
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 240, 46%, 5%;
+    --foreground: 255, 255%, 255%;
+    --p1: 240, 47%, 19%;
+    --p2: 255, 51%, 33%;
+    --p3: 272, 47%, 37%;
+    --p4: 20, 81%, 54%;
+
+    --p1-foreground: 240, 47%, 85%;
+    --p2-foreground: 20, 81%, 75%;
+
+    --background: 255 50% 5%;
+    --foreground: 255 5% 90%;
+
+    --card: 255 50% 0%;
+    --card-foreground: 255 5% 90%;
+    --popover: 255 50% 5%;
+    --popover-foreground: 255 5% 90%;
+    --primary: 255 50.6% 32.5%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 255 30% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217 30% 15%;
+    --muted-foreground: 255 5% 60%;
+    --accent: 217 30% 15%;
+    --accent-foreground: 255 5% 90%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 255 5% 90%;
+    --border: 255 30% 18%;
+    --input: 255 30% 18%;
+    --ring: 255 50.6% 32.5%;
+    --radius: 0.5rem;
+  }
+}
+
+@font-face {
+  font-family: "BOONE Regular";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("BOONE Regular"),
+    url("/fonts/BOONE.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Daretro Mandra";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Daretro Mandra"),
+    url("/fonts/Daretro Mandra.woff") format("woff");
+}
+
+body {
+  @apply bg-background font-noto-sans text-foreground;
+  scroll-behavior: smooth;
+}
+
+.yarndings-20-regular {
+  font-family: "Yarndings 20", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.frame {
+  --s: 10px; /* control the size */
+  padding: var(--s);
+  border: calc(2 * var(--s)) solid #0000;
+  outline: 1px solid hsl(var(--p2-foreground));
+  outline-offset: calc(-1 * var(--s));
+  background: conic-gradient(
+    from 90deg at 1px 1px,
+    #0000 25%,
+    hsl(var(--p2-foreground)) 0
+  );
+}

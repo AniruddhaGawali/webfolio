@@ -1,0 +1,41 @@
+<div
+  id="background-music"
+  class="group fixed bottom-5 right-5 z-50 flex h-[40px] w-[40px] items-center justify-center overflow-hidden rounded-full text-sm text-background/70 transition-all duration-700 hover:w-[200px] hover:gap-4 hover:bg-foreground hover:px-1"
+>
+  <a target="_blank" href="https://music.youtube.com/playlist?list=PLG7n_5b365CALcI580BfRauo0tNPsaHKI&si=ZVbeR_fPH3jMhmGM">
+    <div class="flex w-0 cursor-pointer items-center justify-center gap-2 overflow-hidden whitespace-nowrap group-hover:w-fit">
+      <i class="ph ph-caret-left text-lg"></i>
+      <span class="text-xs group-hover:underline"> Check out my playlist</span>
+    </div>
+  </a>
+
+  <div class="music flex cursor-pointer items-center justify-center text-2xl text-foreground group-hover:text-background">
+    <i class="ph-bold ph-waveform"></i>
+  </div>
+
+  <audio autoplay preload="auto" loop class="hidden">
+    <source src="/music/background.ogg" type="audio/ogg" />
+  </audio>
+</div>
+
+<script>
+  const backgroundMusic = document.querySelector('#background-music') as HTMLDivElement;
+  const audio = document.querySelector('audio') as HTMLAudioElement;
+  const music = document.querySelector('.music') as HTMLImageElement;
+
+  // if tablet device dont play music
+  if (window.innerWidth < 768) {
+    audio.muted = true;
+   backgroundMusic.style.display = 'none';
+  }
+
+
+  music.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    if (audio.muted) {
+      music.innerHTML = `<i class="ph-bold ph-waveform-slash"></i>`;
+    } else {
+      music.innerHTML = `<i class="ph-bold ph-waveform"></i>`;
+    }
+  });
+</script>

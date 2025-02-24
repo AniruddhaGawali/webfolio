@@ -1,0 +1,59 @@
+<div class="text-pattern"></div>
+
+<style>
+  .text-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* z-index: -1; */
+    font-size: 64px;
+    color: hsl(var(--p1-foreground), 20%);
+    font-family: 'Yarndings 20', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 25px;
+    align-content: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+    line-height: 0.8;
+    inset: -1;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .text-pattern {
+      color: hsl(var(--p1-foreground), 5%);
+    }
+  }
+</style>
+
+<script>
+  function createPattern(characters = 'Wiry', fontFamily = 'Yarndings 20', fontSize = '64px') {
+    const patternContainer = document.querySelector('.text-pattern') as HTMLElement;
+    if (!patternContainer) return;
+    patternContainer.innerHTML = ''; // Clear previous pattern
+
+    // Apply dynamic styles
+    patternContainer.style.fontFamily = fontFamily;
+    patternContainer.style.fontSize = fontSize;
+
+    // Generate multiple characters in sequence
+    const rows = Math.ceil(window.innerHeight / 50);
+    const cols = Math.ceil(window.innerWidth / 50);
+    const totalCells = rows * cols;
+
+    for (let i = 0; i < totalCells; i++) {
+      let span = document.createElement('span');
+      span.textContent = characters[i % characters.length]; // Cycle through characters
+      patternContainer.appendChild(span);
+    }
+  }
+
+  // Initial pattern with multiple characters in sequence
+  window.addEventListener('DOMContentLoaded', () => createPattern('Wiry', 'Yarndings 20', '64px'));
+
+  // Resize event to re-calculate grid
+  window.addEventListener('resize', () => createPattern('Wiry', 'Yarndings 20', '64px'));
+</script>
