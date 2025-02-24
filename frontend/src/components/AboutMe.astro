@@ -4,7 +4,7 @@ import { Button } from './ui/Button';
 ---
 
 <div class="mt-[40vh] flex flex-col px-8 sm:px-12 md:flex-row">
-  <div class="hidden  w-[8%] xl:w-[6%] md:block">
+  <div class="hidden w-[8%] md:block xl:w-[6%]">
     <span class="yarndings-20-regular text-5xl lowercase text-p2-foreground sm:text-6xl md:text-7xl lg:text-8xl"> p</span>
   </div>
   <div class="flex w-full flex-col items-center justify-center md:w-[50%] md:items-start">
@@ -29,7 +29,13 @@ import { Button } from './ui/Button';
       thrive in collaborative environments, always eager to learn, experiment, and push the boundaries of what’s possible. Whether it's refining
       complex interfaces or optimizing backend systems, I am committed to delivering high-quality solutions that make a real impact.
     </p>
-    <Button className="mt-4 bg-p4 py-6 font-daretro-mandra text-lg text-white/70 hover:bg-p2-foreground" size={'lg'}> My Resume </Button>
+    <a
+      href="https://docs.google.com/document/d/1GrdVU6azoRo982QUnuBZ5l1rd_lNb4rZ/edit?usp=sharing&ouid=114844167407428123983&rtpof=true&sd=true"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button className="mt-4 bg-p4 py-6 font-daretro-mandra text-lg text-white/70 hover:bg-p2-foreground" size={'lg'}> My Resume </Button>
+    </a>
   </div>
   <div class="hidden w-[44%] items-center justify-center md:flex">
     <div class="profile-card frame w-[70%] overflow-hidden rounded-lg">
@@ -81,7 +87,6 @@ import { Button } from './ui/Button';
         profileCard.style.transition = 'all 0.5s ease-in-out';
         profileCard.style.transform = '';
       });
-
     }
   });
 </script>
