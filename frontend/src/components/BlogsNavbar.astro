@@ -1,8 +1,41 @@
-<header class="fixed left-0 top-0 flex h-[10dvh] w-full items-center justify-between px-4 sm:px-8 lg:px-12">
-  <h1 class="font-daretro-mandra text-2xl font-bold uppercase">ANiruddha Gawali</h1>
+<header
+  class="fixed left-0 top-0 z-[999] flex h-[10dvh] w-full items-center justify-center px-4 text-p2-foreground sm:px-8 md:justify-between lg:px-12 dark:text-p1-foreground"
+>
+  <h1 class="whitespace-nowrap font-daretro-mandra text-lg font-bold uppercase md:text-xl lg:text-2xl">Aniruddha Gawali</h1>
 
-  <nav class="flex gap-24 font-boone text-2xl uppercase">
-    <a href="/">Home</a>
-    <a href="/blogs">Blogs</a>
+  <div
+    class="yarndings-20-regular absolute right-5 top-3 z-50 flex cursor-pointer items-center justify-center text-4xl transition-all duration-200 md:hidden"
+    id="nav-button"
+  >
+    1
+  </div>
+
+  <nav
+    class={`absolute left-0 top-0 md:flex hidden h-screen w-full flex-col items-center justify-center gap-4 bg-p2 font-boone text-2xl uppercase md:relative md:h-full md:flex-row md:justify-end md:gap-10 md:bg-transparent md:text-xl lg:text-2xl`}
+  >
+    <a href="/blogs" class="group-hover: group flex items-center justify-center gap-4">
+      <span class="yarndings-20-regular mb-1 lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100">r</span>
+      Home
+      <span class="yarndings-20-regular mb-1 lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100">r</span>
+    </a>
+    <a href="/" class="group flex items-center justify-center gap-4">
+      <span class="yarndings-20-regular mb-1 lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100">y</span>
+      Contact Me
+      <span class="yarndings-20-regular mb-1 lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100">y</span>
+    </a>
   </nav>
 </header>
+
+<script>
+  const navButton = document.getElementById('nav-button');
+  const nav = document.querySelector('nav');
+
+  if (navButton && nav) {
+    navButton.addEventListener('click', () => {
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+
+      navButton.classList.toggle('rotate-180');
+      navButton.innerHTML = navButton.innerHTML === '1' ? '0' : '1';
+    });
+  }
+</script>

@@ -1,0 +1,64 @@
+---
+export const prerender = false;
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import type { Blog } from '../../types/blogs';
+
+const id = Astro.url.searchParams.get('id');
+
+let blog = null;
+
+if (id) {
+  try {
+    const response = await fetch(`https://dev.to/api/articles/${id}`);
+
+    if (!response.ok) {
+      throw new Error(`Blog not found (HTTP ${response.status})`);
+    }
+
+    blog = (await response.json()) as Blog;
+
+    if (!blog || !blog.title) {
+      throw new Error('Invalid blog data received.');
+    }
+
+    if (blog.user.username !== 'aniruddhagawali') {
+      throw new Error('Invalid blog data received.');
+    }
+  } catch (err) {
+    return Astro.redirect('/blogs');
+  }
+} else {
+  return Astro.redirect('/blogs');
+}
+
+console.log(blog);
+---
+
+<BlogLayout>
+  <main class="relative flex flex-col min-h-screen w-full">
+    <div class="flex min-h-[40dvh] w-full flex-col items-start justify-end overflow-hidden relative">
+      {blog.cover_image && <img src={blog.cover_image} alt={blog.title + ' cover'} class="absolute left-0 top-0 z-0 h-full w-full object-cover" />}
+      <div class="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-br from-black to-black/10"></div>
+      <h1 class="z-20 ml-20 p-4  pb-0 text-7xl font-bold leading-normal text-p2-foreground dark:text-p1-foreground">
+        {blog.title}
+      </h1>
+      <div class="z-20 ml-20 w-full p-4 pt-0 flex justify-start items-center gap-4">
+        <span class="text-lg font-bold text-p2-foreground dark:text-p1-foreground"
+          >{
+            new Date(blog.published_timestamp).toLocaleDateString('en-IN', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+              weekday: 'long',
+            })
+          }</span
+        >
+        <div class="flex flex-wrap gap-1">{blog.tag_list?.length > 0 && blog.tags.map((tag) => <span class="text-sm font-medium text-gray-500">#{tag}</span>)}</div>
+      </div>
+    </div>
+
+    <article class="w-full p-4  flex items-center justify-center mt-[10dvh]">
+      <div class="min-w-[50dvw] prose prose-lg dark:prose-invert" set:html={blog.body_html}></div>
+    </article>
+  </main>
+</BlogLayout>
