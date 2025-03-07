@@ -39,10 +39,10 @@ console.log(blog);
     <div class="relative flex min-h-[40dvh] w-full flex-col items-start justify-end overflow-hidden">
       {blog.cover_image && <img src={blog.cover_image} alt={blog.title + ' cover'} class="absolute left-0 top-0 z-0 h-full w-full object-cover" />}
       <div class="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-br from-black to-black/10"></div>
-      <h1 class="z-20 ml-20 p-4 pb-0 text-7xl font-bold leading-normal text-p2-foreground dark:text-p1-foreground">
+      <h1 class="z-20 mt-10 lg:mt-0 lg:ml-20 p-4 text-5xl lg:text-7xl font-bold leading-normal text-p2-foreground dark:text-p1-foreground md:text-left text-center">
         {blog.title}
       </h1>
-      <div class="z-20 ml-20 flex w-full items-center justify-start gap-4 p-4 pt-0">
+      <div class="z-20 ml-0 lg:ml-20 flex flex-col md:flex-row w-full items-center justify-start gap-4 p-4 pt-0">
         <span class="text-lg font-bold text-p2-foreground dark:text-p1-foreground"
           >{
             new Date(blog.published_timestamp).toLocaleDateString('en-IN', {

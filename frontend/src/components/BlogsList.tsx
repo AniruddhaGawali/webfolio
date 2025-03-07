@@ -40,11 +40,11 @@ const BlogList = () => {
           No blogs
         </div>
       ) : (
-        <section className="container my-8 grid w-full max-w-[1280px] grid-cols-3 gap-8">
+        <section className="container my-8 grid w-full max-w-[1280px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {filteredBlogs.map((blog) => (
             <div
               key={blog.id}
-              className="flex h-[55dvh] flex-col items-start justify-start gap-4 rounded-lg border border-p2-foreground bg-black/10 bg-gradient-to-br p-8 backdrop-blur-sm dark:border-p1-foreground dark:bg-white/25"
+              className="flex min-h-[55dvh] flex-col items-start justify-start gap-4 rounded-lg border border-p2-foreground bg-black/10 bg-gradient-to-br p-8 backdrop-blur-sm dark:border-p1-foreground dark:bg-white/25"
             >
               {blog.cover_image && (
                 <img
