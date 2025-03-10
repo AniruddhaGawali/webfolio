@@ -4,6 +4,7 @@ import { Textarea } from "./ui/TextArea";
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import Modal from "./ui/Modal";
+import { toast } from "sonner";
 
 function WebfolioNavbar() {
   const [heightOfHeader, setHeightOfHeader] = useState(100);
@@ -12,6 +13,9 @@ function WebfolioNavbar() {
   const [showVideo, setShowVideo] = useState(false);
   const [screenWidth, setScreenWidth] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
+
+  const [name, setName] = useState("");
+  const [wish, setWish] = useState("");
 
   const handleMakeWish = (e: React.MouseEvent<HTMLSpanElement>) => {
     e.stopPropagation();
@@ -22,8 +26,26 @@ function WebfolioNavbar() {
     star.classList.add("star-wished");
   };
 
-  const handleWishClick = () => {
-    setShowVideo(true);
+  const handleWishClick = async () => {
+    if (name.trim() === "" || wish.trim() === "") {
+      toast.error("Name and Wish are required");
+      return;
+    }
+
+    const res = await fetch("/api/wish", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        wish,
+        name,
+      }),
+    });
+
+    console.log(await res.json());
+
+    // setShowVideo(true);
   };
 
   const handleVideoEnd = () => {
@@ -115,7 +137,7 @@ function WebfolioNavbar() {
 
           position: "fixed",
         }}
-        className={`relative left-0 top-0 z-10 flex min-h-[10dvh] min-w-full flex-col items-start justify-center overflow-hidden`}
+        className={`relative left-0 top-0 flex min-h-[10dvh] min-w-full flex-col items-start justify-center overflow-hidden`}
       >
         <h1
           style={{
@@ -227,12 +249,22 @@ function WebfolioNavbar() {
               className={`flex h-[5%] w-full items-end justify-center gap-2 pb-4 transition-[height,background-color] delay-300 duration-500 group-hover:h-[100%] group-hover:delay-0 ${heightOfHeader > 20 && "group-hover:bg-white/10 group-hover:backdrop-blur-md dark:group-hover:bg-lime-500/20"}`}
             >
               <div className="flex w-full items-center justify-center gap-4 transition-none">
-                <span className="yarndings-20-regular mb-1 text-sm opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100 md:text-xl">
+                <span
+                  style={{
+                    fontSize: `min(2rem,${fontSizeOfNavbar})`,
+                  }}
+                  className="yarndings-20-regular mb-1 opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100"
+                >
                   {" "}
                   W{" "}
                 </span>
                 Projects
-                <span className="yarndings-20-regular mb-1 text-sm opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100 md:text-xl">
+                <span
+                  style={{
+                    fontSize: `min(2rem,${fontSizeOfNavbar})`,
+                  }}
+                  className="yarndings-20-regular mb-1 opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100"
+                >
                   {" "}
                   W{" "}
                 </span>
@@ -255,11 +287,21 @@ function WebfolioNavbar() {
               className={`flex h-[5%] w-full items-end justify-center gap-2 pb-4 transition-[height,background-color] delay-300 duration-500 group-hover:h-[100%] group-hover:delay-0 ${heightOfHeader > 20 && "group-hover:bg-white/10 group-hover:backdrop-blur-md dark:group-hover:bg-yellow-500/20"}`}
             >
               <div className="flex w-full items-center justify-center gap-4">
-                <span className="yarndings-20-regular mb-1 text-sm lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100 md:text-xl">
+                <span
+                  style={{
+                    fontSize: `min(2rem,${fontSizeOfNavbar})`,
+                  }}
+                  className="yarndings-20-regular mb-1 lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100"
+                >
                   r
                 </span>
                 Blogs
-                <span className="yarndings-20-regular mb-1 text-sm lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100 md:text-xl">
+                <span
+                  style={{
+                    fontSize: `min(2rem,${fontSizeOfNavbar})`,
+                  }}
+                  className="yarndings-20-regular mb-1 lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100"
+                >
                   r
                 </span>
               </div>
@@ -288,11 +330,21 @@ function WebfolioNavbar() {
             >
               <div className="flex w-full items-center justify-center">
                 <div className="flex items-center gap-4">
-                  <span className="yarndings-20-regular mb-1 text-sm lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100 md:text-xl">
+                  <span
+                    style={{
+                      fontSize: `min(2rem,${fontSizeOfNavbar})`,
+                    }}
+                    className="yarndings-20-regular mb-1 lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100"
+                  >
                     y
                   </span>
                   Contact Me
-                  <span className="yarndings-20-regular mb-1 text-sm lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100 md:text-xl">
+                  <span
+                    style={{
+                      fontSize: `min(2rem,${fontSizeOfNavbar})`,
+                    }}
+                    className="yarndings-20-regular mb-1 lowercase opacity-0 transition-opacity delay-300 duration-300 group-hover:opacity-100"
+                  >
                     y
                   </span>
                 </div>
@@ -324,6 +376,7 @@ function WebfolioNavbar() {
             placeholder="write your wish..."
             rows={8}
             maxLength={300}
+            onChange={(e) => setWish(e.target.value)}
           />
 
           <label
@@ -332,7 +385,12 @@ function WebfolioNavbar() {
           >
             <span className="text-sm font-semibold">Your Name</span>
           </label>
-          <Input className="max-w-sm" id="wish-name" name="wish-name" />
+          <Input
+            className="max-w-sm"
+            id="wish-name"
+            name="wish-name"
+            onChange={(e) => setName(e.target.value)}
+          />
 
           <Button className="w-fit" onClick={handleWishClick}>
             <span className="yarndings-20-regular text-xl">X</span>Bless Me

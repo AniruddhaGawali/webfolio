@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import BackgroundMusic from '../components/BackgroundMusic.astro';
 import TextPattern from '../components/ui/TextPattern.astro';
+import { Toaster } from 'sonner'
 ---
 
 <!doctype html>
@@ -27,6 +28,7 @@ import TextPattern from '../components/ui/TextPattern.astro';
     <TextPattern />
     <slot />
     <Footer />
+    <Toaster client:load richColors/>
   </body>
 </html>
 

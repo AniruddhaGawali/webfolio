@@ -6,17 +6,15 @@ import BlogList from '../../components/BlogsList';
 <BlogLayout>
   <main class="flex min-h-screen w-full flex-col items-start justify-start">
     <h2
-      class="flex h-[40dvh] w-full items-center justify-center gap-2 bg-gradient-to-b from-amber-500/60 to-amber-200/20 text-center font-boone text-5xl lg:text-8xl font-bold text-p2-foreground dark:text-p1-foreground"
+      class="flex h-[40dvh] w-full items-center justify-center gap-2 bg-gradient-to-b from-amber-500/60 to-amber-200/20 text-center font-boone text-5xl font-bold text-p2-foreground lg:text-8xl dark:text-p1-foreground"
     >
-      <span class="yarndings-20-regular mb-4 text-4xl lg:text-6xl lowercase">r</span>
+      <span class="yarndings-20-regular mb-4 text-4xl lowercase lg:text-6xl">r</span>
       <span>BLOGS</span>
-      <span class="yarndings-20-regular mb-4 text-4xl lg:text-6xl lowercase">r</span>
+      <span class="yarndings-20-regular mb-4 text-4xl lowercase lg:text-6xl">r</span>
     </h2>
 
     <div class="relative flex h-full min-h-[100dvh] w-full flex-col items-center justify-start">
-      <p class="text-base md:text-2xl text-center mx-auto font-normal">
-    A collection of my thoughts and experiences
-      </p>
+      <p class="mx-auto text-center text-base font-normal md:text-2xl">A collection of my thoughts and experiences</p>
       <div class="absolute left-0 top-0 -z-10 min-h-[40dvh] w-full bg-gradient-to-b from-amber-200/20 to-transparent"></div>
       <BlogList client:load />
     </div>
