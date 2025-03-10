@@ -32,20 +32,19 @@ function WebfolioNavbar() {
       return;
     }
 
-    const res = await fetch("/api/wish", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        wish,
-        name,
-      }),
-    });
-
-    console.log(await res.json());
-
-    // setShowVideo(true);
+    setShowVideo(true);
+    try {
+      await fetch("/api/wish", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          wish,
+          name,
+        }),
+      });
+    } catch (error) {}
   };
 
   const handleVideoEnd = () => {
