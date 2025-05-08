@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import TextPattern from '../components/ui/TextPattern.astro';
+import BlogsNavbar from '../components/BlogsNavbar.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Aniruddha Gawali | Blogs</title>
+  </head>
+  <body>
+    <TextPattern />
+    <BlogsNavbar />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+</style>

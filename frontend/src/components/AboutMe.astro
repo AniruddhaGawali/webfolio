@@ -1,0 +1,92 @@
+---
+import Profile from '../assets/profile.jpg';
+import { Button } from './ui/Button';
+---
+
+<div class="mt-[40vh] flex flex-col px-8 sm:px-12 md:flex-row">
+  <div class="hidden w-[8%] md:block xl:w-[6%]">
+    <span class="yarndings-20-regular text-5xl lowercase text-p2-foreground sm:text-6xl md:text-7xl lg:text-8xl"> p</span>
+  </div>
+  <div class="flex w-full flex-col items-center justify-center md:w-[50%] md:items-start">
+    <h2 class="text-center font-boone text-5xl uppercase text-p2-foreground sm:text-6xl md:text-left md:text-7xl lg:text-8xl xl:text-9xl">
+      About Me
+    </h2>
+
+    <div class="flex min-w-[300px] items-center justify-center sm:w-2/3 md:hidden">
+      <div class="profile-card frame w-[70%] overflow-hidden rounded-lg">
+        <img class="h-full w-full rounded-sm object-cover" src={Profile.src} alt="Aniruddha Gawali" />
+      </div>
+    </div>
+    <p class="text-justify lg:w-[80%]">
+      I am a passionate and detail-oriented Web Developer with a strong focus on creating clean, efficient, and user-friendly digital experiences.
+      With a deep understanding of modern web technologies, I enjoy turning ideas into interactive and scalable solutions. My expertise lies in
+      frontend and full-stack development, where I prioritize performance, accessibility, and seamless user experiences. Constantly exploring new
+      trends and innovations, I strive to stay ahead in the ever-evolving tech landscape.
+    </p>
+    <br />
+    <p class="text-justify lg:w-[80%]">
+      Beyond coding, I have a problem-solving mindset and a keen eye for design, ensuring that both functionality and aesthetics go hand in hand. I
+      thrive in collaborative environments, always eager to learn, experiment, and push the boundaries of what’s possible. Whether it's refining
+      complex interfaces or optimizing backend systems, I am committed to delivering high-quality solutions that make a real impact.
+    </p>
+    <a
+      href="https://docs.google.com/document/d/1GrdVU6azoRo982QUnuBZ5l1rd_lNb4rZ/edit?usp=sharing&ouid=114844167407428123983&rtpof=true&sd=true"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button className="mt-4 bg-p4 py-6 font-daretro-mandra text-lg text-white/70 hover:bg-p2-foreground" size={'lg'}> My Resume </Button>
+    </a>
+  </div>
+  <div class="hidden w-[44%] items-center justify-center md:flex">
+    <div class="profile-card frame w-[70%] overflow-hidden rounded-lg">
+      <img class="h-full w-full rounded-sm object-cover" src={Profile.src} alt="Aniruddha Gawali" />
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const profileCard = document.querySelectorAll('.profile-card')[1] as HTMLDivElement;
+
+    let bounds = null;
+
+    function rotateToMouse(e: MouseEvent) {
+      if (!profileCard) return;
+
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      bounds = profileCard.getBoundingClientRect();
+      const leftX = mouseX - bounds.left;
+      const topY = mouseY - bounds.top;
+
+      const center = {
+        x: leftX - bounds.width / 2,
+        y: topY - bounds.height / 2,
+      };
+
+      const rotateX = (center.y / bounds.height) * 30;
+      const rotateY = -(center.x / bounds.width) * 30;
+
+      profileCard.style.transform = `
+      perspective(1000px)
+      scale(1.05)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+    `;
+    }
+
+    if (window.innerWidth > 769 && profileCard) {
+      profileCard.addEventListener('mouseenter', () => {
+        profileCard.style.transition = 'none';
+        document.addEventListener('mousemove', rotateToMouse);
+      });
+
+      profileCard.addEventListener('mouseleave', () => {
+        document.removeEventListener('mousemove', rotateToMouse);
+        profileCard.style.transition = 'all 0.5s ease-in-out';
+        profileCard.style.transform = '';
+      });
+    }
+  });
+</script>
